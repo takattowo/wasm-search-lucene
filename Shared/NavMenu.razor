@@ -1,0 +1,107 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">DoAnAI</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" @onclick="HandleClick" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="view/CHƯƠNG-I.pdf/Cơ sở Logic">
+                <span aria-hidden="true" style="font-weight: 700;padding-right: .5rem;">1. </span>
+                Cơ sở Logic
+            </NavLink>
+                        <ul class="nav flex-column">
+                <li class="nav-item px-3">
+                  <NavLink class="nav-link" href="view/I-Khái-niệm.pdf/Khái niệm cơ sở logic" Match=@NavLinkMatch.All>
+                    Khái niệm cơ sở logic
+                  </NavLink>
+                </li>
+                <li class="nav-item px-3">
+                  <NavLink class="nav-link" href="view/II-Định-nghĩa-logic.pdf/Định nghĩa tính chất cơ sở logic" Match=@NavLinkMatch.All>
+                    Định nghĩa tính chất logic
+                  </NavLink>
+                </li>
+                <li class="nav-item px-3">
+                  <NavLink class="nav-link" href="view/III-Độ-Ưu-Tiên.pdf/Độ ưu tiên cơ sở logic" Match=@NavLinkMatch.All>
+                    Độ ưu tiên cơ sở logic
+                  </NavLink>
+                </li>
+                <li class="nav-item px-3">
+                  <NavLink class="nav-link" href="view/IV-Suy-luận.pdf/Suy luận cơ sở logic" Match=@NavLinkMatch.All>
+                    Suy luận cơ sở logic
+                  </NavLink>
+                </li>
+                <li class="nav-item px-3">
+                  <NavLink class="nav-link" href="view/V-Các-dạng-bài-tập.pdf/Các dạng bài tập" Match=@NavLinkMatch.All>
+                    Các dạng bài tập
+                  </NavLink>
+                </li>
+              </ul>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="view/CHƯƠNG-II.pdf/Đại số Boole">
+                <span aria-hidden="true" style="font-weight: 700;padding-right: .5rem;">2. </span>
+                 Đại số Boole
+            </NavLink>
+            <ul class="nav flex-column">
+                <li class="nav-item px-3">
+                  <NavLink class="nav-link" href="view/I-Khái-niệm-đại-số-Boole.pdf/Khái niệm đại số Boole" Match=@NavLinkMatch.All>
+                    Khái niệm đại số Boole
+                  </NavLink>
+                </li>
+                <li class="nav-item px-3">
+                  <NavLink class="nav-link" href="view/II-Định-nghĩa.pdf/Định nghĩa và tính chất" Match=@NavLinkMatch.All>
+                    Định nghĩa và tính chất
+                  </NavLink>
+                </li>
+                <li class="nav-item px-3">
+                  <NavLink class="nav-link" href="view/III-Khai-triển-hàm-Boole.pdf/Khai triển hàm Boole" Match=@NavLinkMatch.All>
+                    Khai triển hàm Boole
+                  </NavLink>
+                </li>
+                <li class="nav-item px-3">
+                  <NavLink class="nav-link" href="view/IV-Mạch-Logic.pdf/Mạch Logic" Match=@NavLinkMatch.All>
+                    Mạch Logic
+                  </NavLink>
+                </li>
+                <li class="nav-item px-3">
+                  <NavLink class="nav-link" href="view/V-Tối-thiểu-hóa-hàm-Boole.pdf/Tối thiểu hóa hàm Boole" Match=@NavLinkMatch.All>
+                    Tối thiểu hóa hàm Boole 
+                  </NavLink>
+                </li>
+                <li class="nav-item px-3">
+                  <NavLink class="nav-link" href="view/VI-Các-dạng-bài-tập.pdf/Các dạng bài tập" Match=@NavLinkMatch.All>
+                    Các dạng bài tập
+                  </NavLink>
+                </li>
+              </ul>
+        </div>
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    @inject NavigationManager NavigationManager;
+
+    private void HandleClick()
+    {
+        NavigationManager.NavigateTo("", true);
+    }
+}

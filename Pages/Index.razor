@@ -1,0 +1,65 @@
+﻿@page "/"
+@inherits Search.Site.SearchComponent
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+@if (!IndexLoaded) {
+    <p style="
+    margin: 50px auto;
+    width: 70%;
+    display: block;
+    height: 50px;
+    text-align: center;
+    border-radius: 15px;">
+    Building the search index...
+    </p>
+} else {
+    <form @onsubmit="Search" class="search-form">
+        <input type="search" placeholder="Search" id="search" autocomplete="off" @bind="SearchTerm" style="
+    margin: 50px auto;
+    width: 70%;
+    display: block;
+    height: 50px;
+    border-radius: 15px;
+    padding: 0 15px;
+    border-color: #6c757d;
+"/>
+    </form>
+}
+<style>ol.gradient-list > li + li {
+    margin-top: 2rem;
+}
+ol.gradient-list > li {
+    background: white;
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+    counter-increment: gradient-counter;
+    margin-top: 1rem;
+    min-height: 3rem;
+    list-style: none;
+    padding: 1rem 1rem 1rem 3rem;
+    position: relative;
+}
+ol.gradient-list > li::before, ol.gradient-list > li {
+    box-shadow: 0.25rem 0.25rem 0.6rem rgb(0 0 0 / 5%), 0 0.5rem 1.125rem rgb(75 0 0 / 5%);
+}</style>
+<div style="margin: 0px auto;width: 70%;padding: 0 15px;">
+@if (SearchResults.Count() > 0) {
+    <ol class="gradient-list">
+        @foreach(var result in SearchResults) {
+            <li>
+                <p><a href="@result.Url" title="@result.Title" >@result.Title (score: @result.Score.ToString("P2"))</a></p>
+                <p>@result.Description</p>
+                <p class="tags">Tags: @string.Join(" | ", result.Tags)</p>
+            </li>
+        }
+    </ol>
+} else if (SearchResults.Count() == 0 && !string.IsNullOrEmpty(SearchTerm)) {
+    <p>Nothing matched that query</p>
+}
+</div>
+@code
+{
+
+}

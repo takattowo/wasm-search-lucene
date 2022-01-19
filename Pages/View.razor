@@ -1,0 +1,32 @@
+﻿@page "/view/{Id}/{Name}"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>@Name</h1>
+
+<embed src="@Id" style="
+    margin: 30px auto;
+    display: block;
+    width: 80%;
+    height: 90vh;
+">
+
+@code {
+    
+    //show pdf to class content
+    //get name and id from url
+    //get data from server
+    //render data to content
+    [Parameter] 
+    public string? Id { get; set; }
+
+    [Parameter] 
+    public string? Name { get; set; }
+
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
