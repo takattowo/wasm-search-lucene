@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Search.IndexBuilder", "Search.IndexBuilder\Search.IndexBuilder.fsproj", "{12CF1D74-D413-43F4-B3CC-9F3C0E1AB8A9}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoAnAI", "DoAnAI.csproj", "{8286B8DA-C3C9-4B4C-9BDC-6C9E9AA15033}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Search.Site", "Search.Site\Search.Site.fsproj", "{7DCC57A6-E62A-4A6C-9693-242D65A34CEC}"
