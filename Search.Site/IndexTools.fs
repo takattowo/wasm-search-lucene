@@ -17,6 +17,5 @@ let downloadIndex (getStream : string -> Task<Stream>) =
 
 let extractZip path =
     let outputPath = Environment.CurrentDirectory
-    try
     ZipFile.ExtractToDirectory(path, outputPath)
     outputPath
